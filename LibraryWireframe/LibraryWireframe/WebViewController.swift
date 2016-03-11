@@ -89,10 +89,9 @@ class WebViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //webView.loadRequest(NSURLRequest(URL: NSURL(fileURLWithPath: "http://www.d214.org/academics/district-library-resources/")))
-        let url = NSURL (string: "http://www.google.org");
-        let requestObj = NSURLRequest(URL: url!);
-        webView.loadRequest(requestObj);
+        let url = NSURL (string: "http://www.d214.org/academics/district-library-resources/")
+        let requestObj = NSURLRequest(URL: url!)
+        webView.loadRequest(requestObj)
         
         
     }
