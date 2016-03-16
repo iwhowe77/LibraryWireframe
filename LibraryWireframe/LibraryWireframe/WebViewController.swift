@@ -15,6 +15,19 @@ class WebViewController: UIViewController, UITableViewDataSource, UITableViewDel
     @IBOutlet var tableView: UITableView!
     @IBOutlet var webView: UIWebView!
     
+    var cellData: [TableViewItem]
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        cellData = [TableViewItem]()
+        for var i = 0; i < cellTitles.count; i++ {
+            let newItem = TableViewItem(LabelName: cellTitles[i], Link: cellLinks[i])
+            cellData.append(newItem)
+        }
+        super.init(coder: aDecoder)
+        
+    }
+    
     
     //Variables
     let cellIdentifier = "cellIdentifier"
@@ -35,6 +48,7 @@ class WebViewController: UIViewController, UITableViewDataSource, UITableViewDel
         "SIRS",
         "Teen Health & Wellness",
         "World Book"]
+    //TODO: Make 2D Array for different sections? allows for easier identification of headers
     
     let cellLinks = ["",
     "http://go.galegroup.com/ps/i.do?v=2.1&u=dist214&pg=BasicSearch&it=static&sw=w&p=GPS",
@@ -61,15 +75,14 @@ class WebViewController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellTitles.count
+        return cellData.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as UITableViewCell
-        
-        let row = indexPath.row
-        cell.textLabel?.text = cellTitles[row]
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("tableCellItem", forIndexPath: indexPath)
+        let label = cell.viewWithTag(777) as! UILabel
+        let item = cellData[indexPath.row]
+        label.text = item.labelNamed
         return cell
     }
     
