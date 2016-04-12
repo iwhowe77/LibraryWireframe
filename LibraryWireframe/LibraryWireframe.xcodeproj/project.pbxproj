@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7204AEFE1C962571000643AC /* TableViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7204AEFD1C962571000643AC /* TableViewItem.swift */; };
+		726559C81CBD8B360096F925 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726559C71CBD8B360096F925 /* UIColor.swift */; };
 		72974A5D1C65339400B658CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72974A5C1C65339400B658CD /* AppDelegate.swift */; };
 		72974A5F1C65339400B658CD /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72974A5E1C65339400B658CD /* LoginController.swift */; };
 		72974A621C65339400B658CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72974A601C65339400B658CD /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		7204AEFD1C962571000643AC /* TableViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewItem.swift; sourceTree = "<group>"; };
+		726559C71CBD8B360096F925 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		72974A591C65339400B658CD /* LibraryWireframe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibraryWireframe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72974A5C1C65339400B658CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72974A5E1C65339400B658CD /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				72974A5C1C65339400B658CD /* AppDelegate.swift */,
 				72974A5E1C65339400B658CD /* LoginController.swift */,
 				72974A8A1C65486100B658CD /* WebViewController.swift */,
+				726559C71CBD8B360096F925 /* UIColor.swift */,
 				7204AEFD1C962571000643AC /* TableViewItem.swift */,
 				72974A601C65339400B658CD /* Main.storyboard */,
 				72974A631C65339400B658CD /* Assets.xcassets */,
@@ -269,6 +272,7 @@
 				72974A5F1C65339400B658CD /* LoginController.swift in Sources */,
 				72974A8B1C65486100B658CD /* WebViewController.swift in Sources */,
 				72974A5D1C65339400B658CD /* AppDelegate.swift in Sources */,
+				726559C81CBD8B360096F925 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
