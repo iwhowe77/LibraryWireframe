@@ -14,6 +14,7 @@ class WebViewController: UIViewController, UITableViewDataSource, UITableViewDel
     //Outlets
     @IBOutlet var tableView: UITableView!
     @IBOutlet var webView: UIWebView!
+    @IBOutlet weak var resourceTitleView: UIView!
     
     var cellData: [TableViewItem]
     
@@ -121,6 +122,14 @@ class WebViewController: UIViewController, UITableViewDataSource, UITableViewDel
         
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let url = NSURL (string: "http://www.d214.org/academics/district-library-resources/")
+        let requestObj = NSURLRequest(URL: url!)
+        webView.loadRequest(requestObj)
+        
+        
+    }
     
     //Variables
     let cellIdentifier = "cellIdentifier"
@@ -163,14 +172,13 @@ class WebViewController: UIViewController, UITableViewDataSource, UITableViewDel
         webView.loadRequest(urlRequest)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let url = NSURL (string: "http://www.d214.org/academics/district-library-resources/")
-        let requestObj = NSURLRequest(URL: url!)
-        webView.loadRequest(requestObj)
+    @IBAction func toggleResourceTab(sender: UIBarButtonItem) {
         
         
     }
+    
+    
+    
     
 }
 
