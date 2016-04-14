@@ -191,6 +191,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="resourceTitleView" destination="EBI-ah-Aor" id="yJP-Qg-uN9"/>
+                        <outlet property="resourceView" destination="QJk-L7-2nt" id="INt-rR-Lyl"/>
                         <outlet property="tableView" destination="Sf4-1i-n3m" id="9rZ-DA-uey"/>
                         <outlet property="webView" destination="DJn-Zz-M2d" id="nNT-W3-Qce"/>
                     </connections>

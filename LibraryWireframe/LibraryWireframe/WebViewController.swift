@@ -15,6 +15,8 @@ class WebViewController: UIViewController, UITableViewDataSource, UITableViewDel
     @IBOutlet var tableView: UITableView!
     @IBOutlet var webView: UIWebView!
     @IBOutlet weak var resourceTitleView: UIView!
+    @IBOutlet weak var resourceView: UIView!
+    
     
     var cellData: [TableViewItem]
     
@@ -104,8 +106,8 @@ class WebViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 "http://ezproxy.d214.org:2048/login?url=http://www.careercruising.com/home/GroupLogin.aspx"]]
         
         cellData = [TableViewItem]()
-        for var i = 0; i < cellTitles.count; i++ {
-            for var j = 0; j < cellTitles[i].count; j++ {
+        for i in 0 ..< cellTitles.count {
+            for j in 0 ..< cellTitles[i].count {
                 if j == 0 {
                     let newItem = TableViewItem(LabelName: cellTitles[i][j], Link: cellLinks[i][j], IsHeader: true)
                     cellData.append(newItem)
@@ -124,6 +126,9 @@ class WebViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let newWebViewFrame = CGRect(x: 0, y: self.webView.frame.origin.y, width: self.view.frame.width, height: self.webView.frame.height)
+        webView.frame = newWebViewFrame
+        
         let url = NSURL (string: "http://www.d214.org/academics/district-library-resources/")
         let requestObj = NSURLRequest(URL: url!)
         webView.loadRequest(requestObj)
@@ -164,6 +169,8 @@ class WebViewController: UIViewController, UITableViewDataSource, UITableViewDel
         tableView.deselectRowAtIndexPath(selectedIndex, animated: true)
         selectedIndex = indexPath
         
+        toggleResourceTab(UIBarButtonItem())
+        
         let row = indexPath.row
         print(cellData[row].labelName)
         
@@ -174,11 +181,22 @@ class WebViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     @IBAction func toggleResourceTab(sender: UIBarButtonItem) {
         
-        
+        UIView.animateWithDuration(0.5, animations: {
+            if self.resourceView.frame.origin.x == 0 {
+                self.resourceView.frame.origin.x = (-1 * self.resourceView.frame.width)
+                let newWebViewFrame = CGRect(x: 0, y: self.webView.frame.origin.y, width: self.view.frame.width, height: self.webView.frame.height)
+                self.webView.frame = newWebViewFrame
+            }
+            else {
+                self.resourceView.frame.origin.x = 0
+//                let newWebViewFrame = CGRect(x: self.resourceView.frame.width, y: self.webView.frame.origin.y, width: (self.view.frame.width - self.resourceView.frame.width), height: self.webView.frame.height)
+//                self.webView.frame = newWebViewFrame
+            }
+            }, completion: nil)
     }
-    
-    
-    
-    
 }
+
+    
+    
+
 
