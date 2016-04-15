@@ -138,8 +138,9 @@ class WebViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     //Variables
     let cellIdentifier = "cellIdentifier"
-    
     var selectedIndex = NSIndexPath()
+    var username = ""
+    var password = ""
     
     // MARK:  UITextFieldDelegate Methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -195,6 +196,17 @@ class WebViewController: UIViewController, UITableViewDataSource, UITableViewDel
             }, completion: nil)
     }
 }
+
+
+
+//http://stackoverflow.com/questions/26329771/autofill-username-and-password-uiwebview-swift
+
+
+
+
+
+
+
 
     
     
