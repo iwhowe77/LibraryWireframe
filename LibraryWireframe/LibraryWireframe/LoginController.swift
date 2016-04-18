@@ -36,7 +36,8 @@ class LoginController: UIViewController{
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "loginToWebView" {
-            let webViewController = segue.destinationViewController as! WebViewController
+            let navController = segue.destinationViewController
+            let webViewController = navController.childViewControllers[0] as! WebViewController
             webViewController.username = username
             webViewController.password = password
         }

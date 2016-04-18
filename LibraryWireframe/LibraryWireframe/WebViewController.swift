@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class WebViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class WebViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate{
     
     //Outlets
     @IBOutlet var tableView: UITableView!
@@ -64,6 +64,8 @@ class WebViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 "All Data Pro (Auto)",
                 "Career Cruising"]]
 
+        
+        
         let cellLinks = [["http://www.d214.org/academics/district-library-resources/#Research",
             "http://go.galegroup.com/ps/i.do?v=2.1&u=dist214&pg=BasicSearch&it=static&sw=w&p=GPS",
             "http://ezproxy.d214.org:2048/login?url=http://infotrac.galegroup.com/itweb/dist214?db=BIC1",
@@ -195,11 +197,27 @@ class WebViewController: UIViewController, UITableViewDataSource, UITableViewDel
             }
             }, completion: nil)
     }
+    
+    //http://stackoverflow.com/questions/26329771/autofill-username-and-password-uiwebview-swift
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        let savedUsername = NSUserDefaults.standardUserDefaults().stringForKey(username)
+        let savedPassword = NSUserDefaults.standardUserDefaults().stringForKey(password)
+        
+        let fillForm = String(format: "document.getElementByName('user').value = '\(savedUsername)';document.getElementByName('pass').value = '\(savedPassword)';")
+        webView.stringByEvaluatingJavaScriptFromString(fillForm)
+        
+        //submit form
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * NSEC_PER_SEC)), dispatch_get_main_queue()){
+            webView.stringByEvaluatingJavaScriptFromString("document.forms[\"new_expert\"].submit();")
+        }
+    }
+    
+    
+    
+    
 }
 
-
-
-//http://stackoverflow.com/questions/26329771/autofill-username-and-password-uiwebview-swift
 
 
 
