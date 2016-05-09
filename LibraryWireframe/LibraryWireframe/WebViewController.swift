@@ -198,19 +198,22 @@ class WebViewController: UIViewController, UITableViewDataSource, UITableViewDel
             }, completion: nil)
     }
     
-    //http://stackoverflow.com/questions/26329771/autofill-username-and-password-uiwebview-swift
+    //http://stackoverflow.com/questions/10306129/javascript-get-element-by-name
     
     func webViewDidFinishLoad(webView: UIWebView) {
-        let savedUsername = NSUserDefaults.standardUserDefaults().stringForKey(username)
-        let savedPassword = NSUserDefaults.standardUserDefaults().stringForKey(password)
-        
-        let fillForm = String(format: "document.getElementByName('user').value = '\(savedUsername)';document.getElementByName('pass').value = '\(savedPassword)';")
+        //let savedUsername = NSUserDefaults.standardUserDefaults().stringForKey(username)
+        //let savedPassword = NSUserDefaults.standardUserDefaults().stringForKey(password)
+        let savedUsername = username
+        let savedPassword = password
+ 
+        let fillForm = String(format: "document.getElementsByName('user')[0].value = '\(savedUsername)';document.getElementsByName('pass')[0].value = '\(savedPassword)';")
         webView.stringByEvaluatingJavaScriptFromString(fillForm)
         
         //submit form
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * NSEC_PER_SEC)), dispatch_get_main_queue()){
-            webView.stringByEvaluatingJavaScriptFromString("document.forms[\"new_expert\"].submit();")
-        }
+        //webView.stringByEvaluatingJavaScriptFromString("document.querySelectorAll('input[type='submit']').submit();")
+                webView.stringByEvaluatingJavaScriptFromString("document.getElementsByTagName('submit')[0].submit();")
+        //webView.stringByEvaluatingJavaScriptFromString("document.submit();")
+        //webView.stringByEvaluatingJavaScriptFromString("var submitButton = document.")
     }
     
     

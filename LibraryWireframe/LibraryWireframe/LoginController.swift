@@ -23,7 +23,7 @@ class LoginController: UIViewController{
     var username = ""
     var password = ""
     
-    @IBAction func textFieldChanged(sender: UITextField) {
+    @IBAction func textFieldValueChanged(sender: UITextField) {
         if sender.text != nil {
             if sender.tag == 0 {
                 username = sender.text!
@@ -33,6 +33,7 @@ class LoginController: UIViewController{
             }
         }
     }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "loginToWebView" {
