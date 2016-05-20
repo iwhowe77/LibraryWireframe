@@ -144,7 +144,7 @@ class WebViewController: UIViewController, UITableViewDataSource, UITableViewDel
     var username = ""
     var password = ""
     
-    // MARK:  UITextFieldDelegate Methods
+    // MARK:  UITableViewDelegate Methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
